@@ -1,6 +1,9 @@
+# Author: Jennifer Daniels
+# Description: Program creates an application that retrieves
+# the population size based on year and state.
+
 import requests
 from tkinter import *
-from tkinter import filedialog
 import csv
 import json
 
@@ -218,6 +221,7 @@ def read_data():
                 if cnt == 1:
                     e_year.insert(0, row[0])
                     e_state.insert(0, row[1])
+                    check_inputs()
                     return True
                 cnt += 1
     except IOError:
@@ -233,12 +237,7 @@ def write_data(year_out, state_out, pop_out):
         csv_writer.writerow(['Input_Year', 'Input_State', 'Population'])
         csv_writer.writerow([year_out, state_out, pop_out])
 
-def open_file():
-    global cvs_file
-    root.filename = filedialog.askopenfilename(initialdir="/", title="Select file", filetypes=(("jpeg files", "*.jpg"),("all files", "*.*")))
-    print(root.filename)
-
-
+# file menu and file menu items
 menu_bar = Menu(root)
 file_menu = Menu(menu_bar, tearoff=0)
 file_menu.add_command(label="New", command=clear_inputs)

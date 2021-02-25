@@ -163,6 +163,9 @@ def clear_inputs():
     e_state.delete(0, END)
 
 
+def display_results():
+
+
 # Create left and right containers
 l_frame = Frame(root, bg='#A9DFBF', width=250, height=450, pady=3,
                 highlightbackground="black", highlightthickness=1)
